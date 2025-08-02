@@ -247,8 +247,8 @@ body {
   justify-content: center;
   gap: 1rem;
   overflow: hidden;
-  padding: 2rem;
-  max-width: 960px;
+  padding: 2rem 1rem;
+  max-width: 1080px;
   margin: auto;
   touch-action: pan-y;
   user-select: none;
@@ -256,15 +256,16 @@ body {
 
 .carousel {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
   width: 100%;
 }
 
 .carousel-img-container {
-  width: 240px;
-  height: 360px;
+  /* flex: 0 0 calc((100% - 3rem)/3); */
+  flex: 0 0 30%;
+  aspect-ratio: 2/3;
   overflow: hidden;
   border-radius: 1rem;
   transition: transform 0.5s, filter 0.5s, opacity 0.5s;
