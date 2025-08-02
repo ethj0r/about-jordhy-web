@@ -30,15 +30,15 @@
   <section id="about" class="section">
     <div class="carousel-wrapper" id="carousel-wrapper">
       <div class="carousel">
-        <div class="carousel-img-container"><img src="/assets/taman.heic" class="carousel-img" alt="Photo 1" /></div>
-                <div class="carousel-img-container"><img src="/assets/stei1.HEIC" class="carousel-img" alt="Photo 2" /></div>
-        <div class="carousel-img-container"><img src="/assets/itb-korea.heic" class="carousel-img" alt="Photo 3" /></div>
+        <div class="carousel-img-container"><img src="/assets/about-me/taman.heic" class="carousel-img" alt="Photo 1" /></div>
+                <div class="carousel-img-container"><img src="/assets/about-me/stei1.HEIC" class="carousel-img" alt="Photo 2" /></div>
+        <div class="carousel-img-container"><img src="/assets/about-me/itb-korea.heic" class="carousel-img" alt="Photo 3" /></div>
       </div>
     </div>
     <h2>About Me</h2>
     <div class="about-text">
       <p>
-        Technology has always fascinated me—how a few lines of code can create something meaningful and impactful. I'm Jordhy Branenda, a third-semester Informatics Engineering student at the Bandung Institute of Technology, exploring the world of programming and development firsthand.
+        Technology has always fascinated me, how a few lines of code can create something meaningful and impactful. I'm Jordhy Branenda, a third-semester Informatics Engineering student at the Bandung Institute of Technology, exploring the world of programming and development firsthand.
         From writing my first lines of code to building small projects, every step has been an opportunity to learn, experiment, and grow. I'm curious, analytical, and creative, with a strong interest in data science (especially machine learning), web development, and iOS app development.
         I enjoy solving problems, exploring new ideas, and seeing how technology can turn creativity into reality. Every challenge is a chance to improve, and I’m excited to keep learning and see where this journey takes me.
       </p>
@@ -49,20 +49,47 @@
   <section id="projects" class="section">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="card">
-        <h3>Project A</h3>
-        <p>Deskripsi singkat project A.</p>
+      <!-- Card A -->
+      <div class="card" data-link="https://github.com/username/project-a">
+        <div class="card-img">
+          <img src="assets/projects-img/Fruit Ripeness Detection System.png" alt="Fruit Sense." />
+        </div>
+        <div class="card-footer">
+          <h3 class="card-title">Fruit Sense.</h3>
+        </div>
       </div>
-      <div class="card">
-        <h3>Project B</h3>
-        <p>Deskripsi singkat project B.</p>
+      <!-- Card B -->
+      <div class="card" data-link="https://github.com/username/project-b">
+        <div class="card-img">
+          <img src="assets/projects-img/HEALTCORE-N.png" alt="HEALTCORE-N" />
+        </div>
+        <div class="card-footer">
+          <h3 class="card-title">HEALTCORE-N</h3>
+        </div>
       </div>
-      <div class="card">
-        <h3>Project C</h3>
-        <p>Deskripsi singkat project C.</p>
+      <!-- Card C -->
+      <div class="card" data-link="https://github.com/username/project-c">
+        <div class="card-img">
+          <img src="assets/projects-img/Pokemon Battle.png" alt="Pokémon Battle" />
+        </div>
+        <div class="card-footer">
+          <h3 class="card-title">Pokémon Battle</h3>
+        </div>
       </div>
+      <!-- Card D -->
+      <div class="card" data-link="https://github.com/username/project-d">
+        <div class="card-img">
+          <img src="assets/projects-img/Anomaly Detection.png" alt="Anomaly Detection" />
+        </div>
+        <div class="card-footer">
+          <h3 class="card-title">Anomaly Detection</h3>
+        </div>
+      </div>
+      <!-- Tambah E, F... dst di baris berikutnya -->
     </div>
   </section>
+
+
 
   <!-- CONTACT -->
   <section id="contact" class="section">
@@ -74,61 +101,8 @@
       <button type="submit">Send Message</button>
     </form>
   </section>
-
-  <script>
-    let currentIndex = 1;
-    const images = document.querySelectorAll(".carousel-img-container");
-    const total = images.length;
-    const carousel = document.querySelector(".carousel");
-    const wrapper = document.getElementById("carousel-wrapper");
-
-    let autoplay = setInterval(() => moveSlide(1), 5000);
-
-    function updateCarousel() {
-      images.forEach((container, i) => {
-        container.classList.remove("prev", "active", "next");
-      });
-
-      const prevIndex = (currentIndex - 1 + total) % total;
-      const nextIndex = (currentIndex + 1) % total;
-
-      images[prevIndex].classList.add("prev");
-      images[currentIndex].classList.add("active");
-      images[nextIndex].classList.add("next");
-    }
-
-    function moveSlide(dir) {
-      currentIndex = (currentIndex + dir + total) % total;
-      updateCarousel();
-    }
-
-    wrapper.addEventListener("mouseenter", () => clearInterval(autoplay));
-    wrapper.addEventListener("mouseleave", () => autoplay = setInterval(() => moveSlide(1), 5000));
-
-    // drag support
-    let startX = 0;
-    let isDragging = false;
-
-    wrapper.addEventListener("mousedown", e => {
-      isDragging = true;
-      startX = e.clientX;
-    });
-    wrapper.addEventListener("mouseup", e => {
-      if (!isDragging) return;
-      const diff = e.clientX - startX;
-      if (diff > 50) moveSlide(-1);
-      else if (diff < -50) moveSlide(1);
-      isDragging = false;
-    });
-
-    wrapper.addEventListener("touchstart", e => startX = e.touches[0].clientX);
-    wrapper.addEventListener("touchend", e => {
-      const diff = e.changedTouches[0].clientX - startX;
-      if (diff > 50) moveSlide(-1);
-      else if (diff < -50) moveSlide(1);
-    });
-
-    updateCarousel();
-  </script>
+  
+  <script src="projects.js" defer></script>
+  <script src="carousel.js" defer></script>
 </body>
 </html>
