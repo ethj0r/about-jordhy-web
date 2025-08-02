@@ -84,12 +84,10 @@ body {
   pointer-events: none;
   z-index: 2;
 
-  /* Gradient fill */
   background: linear-gradient(120deg, #fff0cde1, #000000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  /* Glowing shadow */
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
                0 0 20px rgba(255, 255, 255, 0.2),
                0 0 30px rgba(255, 255, 255, 0.15);
@@ -241,8 +239,7 @@ body {
   background: #555;
 }
 
-
-/* Tambahan Carousel Styling */
+/*buat carousel di img*/
 .carousel-wrapper {
   position: relative;
   display: flex;
